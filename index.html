@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lena Muturi — E-Commerce & Marketplace Operations Leader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            charcoal:  '#1a1a1e',
+            slate:     '#242430',
+            panel:     '#2c2c3a',
+            gold:      '#c9a96e',
+            'gold-light': '#e0c99a',
+            cream:     '#f5f0e8',
+            muted:     '#9a9ab0',
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans:  ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+
+    /* Gold rule divider */
+    .gold-rule {
+      display: block;
+      width: 48px;
+      height: 2px;
+      background: linear-gradient(90deg, #c9a96e, #e0c99a);
+      margin: 0 auto 1.5rem;
+    }
+    .gold-rule-left {
+      display: block;
+      width: 48px;
+      height: 2px;
+      background: linear-gradient(90deg, #c9a96e, #e0c99a);
+      margin: 0 0 1.5rem;
+    }
+
+    /* Gradient text */
+    .gold-text {
+      background: linear-gradient(135deg, #c9a96e 0%, #e0c99a 50%, #c9a96e 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Photo frame */
+    .photo-frame {
+      position: relative;
+      display: inline-block;
+    }
+    .photo-frame::before {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      border: 1.5px solid #c9a96e;
+      opacity: 0.6;
+    }
+    .photo-frame::after {
+      content: '';
+      position: absolute;
+      inset: -16px;
+      border-radius: 50%;
+      border: 1px solid #c9a96e;
+      opacity: 0.25;
+    }
+
+    /* Nav link hover */
+    .nav-link {
+      position: relative;
+      color: #9a9ab0;
+      font-size: 0.8125rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.25s;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -3px;
+      width: 0; height: 1px;
+      background: #c9a96e;
+      transition: width 0.3s;
+    }
+    .nav-link:hover { color: #c9a96e; }
+    .nav-link:hover::after { width: 100%; }
+
+    /* Case study card */
+    .case-card {
+      background: #2c2c3a;
+      border: 1px solid rgba(201,169,110,0.12);
+      border-radius: 2px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .case-card:hover {
+      border-color: rgba(201,169,110,0.4);
+      transform: translateY(-4px);
+    }
+
+    /* Proficiency card */
+    .prof-card {
+      background: #2c2c3a;
+      border-top: 2px solid #c9a96e;
+      border-radius: 2px;
+      transition: background 0.3s;
+    }
+    .prof-card:hover { background: #323242; }
+
+    /* Testimonial card */
+    .testi-card {
+      background: #2c2c3a;
+      border: 1px solid rgba(201,169,110,0.12);
+      border-radius: 2px;
+      position: relative;
+    }
+    .testi-card::before {
+      content: '\201C';
+      position: absolute;
+      top: -10px; left: 20px;
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      color: #c9a96e;
+      opacity: 0.35;
+      line-height: 1;
+    }
+
+    /* Award ribbon item */
+    .award-item {
+      border-left: 2px solid #c9a96e;
+      padding-left: 1rem;
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* CTA button */
+    .btn-gold {
+      background: transparent;
+      border: 1px solid #c9a96e;
+      color: #c9a96e;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      padding: 0.875rem 2.25rem;
+      transition: background 0.3s, color 0.3s;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .btn-gold:hover {
+      background: #c9a96e;
+      color: #1a1a1e;
+    }
+    .btn-solid {
+      background: #c9a96e;
+      color: #1a1a1e;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      padding: 0.875rem 2.25rem;
+      transition: background 0.3s;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+    }
+    .btn-solid:hover { background: #e0c99a; }
+
+    /* Metric pill */
+    .metric {
+      display: inline-block;
+      color: #c9a96e;
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-charcoal text-cream font-sans antialiased">
+
+<!-- ═══════════════════════  NAV  ═══════════════════════ -->
+<header id="home" class="fixed top-0 left-0 right-0 z-50" style="background:rgba(26,26,30,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,169,110,0.1);">
+  <nav class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+    <a href="#home" class="font-serif text-lg tracking-wide text-cream hover:text-gold-light transition-colors">
+      LM<span class="text-gold">.</span>
+    </a>
+    <!-- Desktop nav -->
+    <ul class="hidden md:flex items-center gap-10">
+      <li><a href="#home" class="nav-link">Home</a></li>
+      <li><a href="#proficiencies" class="nav-link">Proficiencies</a></li>
+      <li><a href="#case-studies" class="nav-link">Case Studies</a></li>
+      <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <a href="mailto:lenawanjirum10@gmail.com" class="hidden md:block btn-gold">Hire Me</a>
+    <!-- Mobile hamburger -->
+    <button id="menu-btn" class="md:hidden text-muted hover:text-gold transition-colors" aria-label="Open menu">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect y="3" width="22" height="1.8" rx="1" fill="currentColor"/><rect y="10" width="22" height="1.8" rx="1" fill="currentColor"/><rect y="17" width="22" height="1.8" rx="1" fill="currentColor"/></svg>
+    </button>
+  </nav>
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="md:hidden hidden px-6 pb-6 space-y-4">
+    <a href="#home" class="nav-link block" onclick="closeMobile()">Home</a>
+    <a href="#proficiencies" class="nav-link block" onclick="closeMobile()">Proficiencies</a>
+    <a href="#case-studies" class="nav-link block" onclick="closeMobile()">Case Studies</a>
+    <a href="#testimonials" class="nav-link block" onclick="closeMobile()">Testimonials</a>
+    <a href="#contact" class="nav-link block" onclick="closeMobile()">Contact</a>
+    <a href="mailto:lenawanjirum10@gmail.com" class="btn-gold inline-block mt-2">Hire Me</a>
+  </div>
+</header>
+
+<!-- ═══════════════════════  HERO  ═══════════════════════ -->
+<section class="min-h-screen flex items-center pt-24 pb-16 px-6">
+  <div class="max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-16 items-center">
+
+    <!-- Text -->
+    <div class="order-2 md:order-1">
+      <p class="text-gold text-xs tracking-[0.25em] uppercase mb-6 font-sans font-medium">E-Commerce &amp; Marketplace Operations</p>
+      <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-cream mb-6">
+        Scaling Markets.<br/>
+        <em class="gold-text not-italic">Elevating Brands.</em><br/>
+        Delivering Growth.
+      </h1>
+      <p class="text-muted leading-relaxed text-base md:text-lg mb-10 max-w-md">
+        Over 8 years building and scaling e-commerce ecosystems at Jumia Kenya — driving GMV, engineering vendor success, and turning data into decisive action.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="#case-studies" class="btn-solid">View Case Studies</a>
+        <a href="#contact" class="btn-gold">Let's Connect</a>
+      </div>
+
+      <!-- Metrics row -->
+      <div class="mt-14 flex flex-wrap gap-10">
+        <div>
+          <span class="metric">55%</span>
+          <p class="text-muted text-xs tracking-widest uppercase mt-1">Marketplace Growth</p>
+        </div>
+        <div style="border-left:1px solid rgba(201,169,110,0.2);padding-left:2.5rem;">
+          <span class="metric">92–95%</span>
+          <p class="text-muted text-xs tracking-widest uppercase mt-1">Vendor NPS</p>
+        </div>
+        <div style="border-left:1px solid rgba(201,169,110,0.2);padding-left:2.5rem;">
+          <span class="metric">8+</span>
+          <p class="text-muted text-xs tracking-widest uppercase mt-1">Years Experience</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Photo -->
+    <div class="order-1 md:order-2 flex justify-center">
+      <div class="photo-frame">
+        <img src="profile.jpg" alt="Lena Muturi"
+          class="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover object-top"
+          style="border:3px solid rgba(201,169,110,0.3);"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+        />
+        <!-- Fallback avatar -->
+        <div style="display:none;width:20rem;height:20rem;border-radius:50%;background:#2c2c3a;border:3px solid rgba(201,169,110,0.3);align-items:center;justify-content:center;flex-direction:column;gap:0.5rem;">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="24" r="12" fill="#c9a96e" opacity="0.4"/><path d="M8 56c0-13.255 10.745-24 24-24s24 10.745 24 24" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/></svg>
+          <span style="color:#9a9ab0;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;font-family:Inter,sans-serif;">profile.jpg</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════  PROFICIENCIES  ═══════════════════════ -->
+<section id="proficiencies" class="py-24 px-6" style="background:#1e1e26;">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <p class="text-gold text-xs tracking-[0.25em] uppercase mb-4 font-medium">What I Bring</p>
+      <span class="gold-rule"></span>
+      <h2 class="font-serif text-3xl md:text-4xl text-cream">Core Proficiencies</h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <div class="prof-card p-8 reveal">
+        <div class="mb-5 text-gold">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 24l5-8 5 4 5-10 5 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="24" r="1.5" fill="currentColor"/><circle cx="24" cy="24" r="1.5" fill="currentColor"/></svg>
+        </div>
+        <h3 class="font-serif text-lg text-cream mb-3">Strategic P&amp;L &amp; Growth Management</h3>
+        <p class="text-muted text-sm leading-relaxed">Owning revenue, cost, and margin levers across a multi-category marketplace. Translating financial insight into scalable growth strategies.</p>
+      </div>
+
+      <div class="prof-card p-8 reveal" style="transition-delay:0.1s;">
+        <div class="mb-5 text-gold">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="9" height="9" rx="1" stroke="currentColor" stroke-width="1.6"/><rect x="16" y="3" width="9" height="9" rx="1" stroke="currentColor" stroke-width="1.6"/><rect x="3" y="16" width="9" height="9" rx="1" stroke="currentColor" stroke-width="1.6"/><rect x="16" y="16" width="9" height="9" rx="1" stroke="currentColor" stroke-width="1.6"/></svg>
+        </div>
+        <h3 class="font-serif text-lg text-cream mb-3">Advanced Data Analytics &amp; BI</h3>
+        <p class="text-muted text-sm leading-relaxed">Power BI dashboard architecture, KPI framework design, and converting raw operational data into executive-level intelligence for real-time decisions.</p>
+      </div>
+
+      <div class="prof-card p-8 reveal" style="transition-delay:0.2s;">
+        <div class="mb-5 text-gold">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4C8.477 4 4 8.477 4 14s4.477 10 10 10 10-4.477 10-10S19.523 4 14 4z" stroke="currentColor" stroke-width="1.6"/><path d="M14 9v5l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="font-serif text-lg text-cream mb-3">Vendor Experience &amp; Journey Optimization</h3>
+        <p class="text-muted text-sm leading-relaxed">End-to-end seller lifecycle management — from acquisition and incubation through retention — achieving industry-leading Net Promoter Scores of 92–95%.</p>
+      </div>
+
+      <div class="prof-card p-8 reveal" style="transition-delay:0.3s;">
+        <div class="mb-5 text-gold">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/><circle cx="6" cy="20" r="3" stroke="currentColor" stroke-width="1.6"/><circle cx="22" cy="20" r="3" stroke="currentColor" stroke-width="1.6"/><path d="M10 11l-4 6M18 11l4 6M10 11h8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="font-serif text-lg text-cream mb-3">Cross-Functional Team Leadership</h3>
+        <p class="text-muted text-sm leading-relaxed">Building and leading high-performing, diverse teams. Aligning commercial, operations, and fulfilment stakeholders toward shared performance goals.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════  CASE STUDIES  ═══════════════════════ -->
+<section id="case-studies" class="py-24 px-6 bg-charcoal">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <p class="text-gold text-xs tracking-[0.25em] uppercase mb-4 font-medium">Proven Impact</p>
+      <span class="gold-rule"></span>
+      <h2 class="font-serif text-3xl md:text-4xl text-cream">Case Studies</h2>
+      <p class="text-muted mt-4 text-sm max-w-xl mx-auto">Three initiatives that redefined what's possible in marketplace operations at Jumia Kenya.</p>
+    </div>
+
+    <div class="space-y-8">
+
+      <!-- Case 1 -->
+      <div class="case-card p-8 md:p-10 reveal">
+        <div class="flex items-start gap-6 mb-8 flex-wrap">
+          <div>
+            <p class="text-gold text-xs tracking-[0.2em] uppercase font-medium mb-1">Case Study 01</p>
+            <h3 class="font-serif text-2xl md:text-3xl text-cream">Scaling E-Commerce Marketplace Operations</h3>
+          </div>
+          <span class="ml-auto metric text-4xl md:text-5xl">55%</span>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div>
+            <span class="gold-rule-left"></span>
+            <p class="text-gold text-xs tracking-[0.18em] uppercase font-medium mb-3">The Problem</p>
+            <p class="text-muted text-sm leading-relaxed">Jumia Kenya's seller base was stagnant. Seller drop-off during onboarding was high, category depth was thin, and the marketplace lacked the density needed to compete on assortment and price.</p>
+          </div>
+          <div>
+            <span class="gold-rule-left"></span>
+            <p class="text-gold text-xs tracking-[0.18em] uppercase font-medium mb-3">Strategy &amp; Execution</p>
+            <p class="text-muted text-sm leading-relaxed">Designed and executed a targeted seller acquisition programme segmented by product category. Built a structured incubation model — pairing new vendors with dedicated account support, performance benchmarks, and milestone-based escalation — to compress time-to-first-sale and reduce early churn.</p>
+          </div>
+          <div>
+            <span class="gold-rule-left"></span>
+            <p class="text-gold text-xs tracking-[0.18em] uppercase font-medium mb-3">Measurable Outcome</p>
+            <p class="text-muted text-sm leading-relaxed">Achieved <strong class="text-cream font-medium">55% marketplace growth</strong> in active vendor count and Gross Merchandise Volume. Category depth expanded significantly, improving customer conversion rates and repeat purchase frequency across targeted segments.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 2 -->
+      <div class="case-card p-8 md:p-10 reveal" style="transition-delay:0.1s;">
+        <div class="flex items-start gap-6 mb-8 flex-wrap">
+          <div>
+            <p class="text-gold text-xs tracking-[0.2em] uppercase font-medium mb-1">Case Study 02</p>
+            <h3 class="font-serif text-2xl md:text-3xl text-cream">Operational Efficiency &amp; Data-Driven Decision Making</h3>
+          </div>
+          <span class="ml-auto metric text-4xl md:text-5xl">93%<span class="text-xl font-sans font-light text-muted ml-1">NPS</span></span>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div>
+            <span class="gold-rule-left"></span>
+            <p class="text-gold text-xs tracking-[0.18em] uppercase font-medium mb-3">The Problem</p>
+            <p class="text-muted text-sm leading-relaxed">Fragmented communication channels between vendors, operations, and finance were creating payment bottlenecks, rising fraud cases, and significant operational blindspots. Leadership lacked a unified view of performance health.</p>
+          </div>
+          <div>
+            <span class="gold-rule-left"></span>
+            <p class="text-gold text-xs tracking-[0.18em] uppercase font-medium mb-3">Strategy &amp; Execution</p>
+            <p class="text-muted text-sm leading-relaxed">Deployed a Power BI analytics suite — consolidating vendor, finance, and operations data into a real-time executive dashboard. Streamlined cross-functional communication protocols and introduced structured fraud detection workflows with clear escalation paths and SLA accountability.</p>
+          </div>
+          <div>
+            <span class="gold-rule-left"></span>
+            <p class="text-gold text-xs tracking-[0.18em] uppercase font-medium mb-3">Measurable Outcome</p>
+            <p class="text-muted text-sm leading-relaxed">Fraud cases <strong class="text-cream font-medium">dropped dramatically</strong>. Payment resolution cycles shortened from weeks to days. Vendor satisfaction soared, culminating in a sustained <strong class="text-cream font-medium">92–95% Vendor Net Promoter Score</strong> — a benchmark for the Jumia group.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 3 -->
+      <div class="case-card p-8 md:p-10 reveal" style="transition-delay:0.2s;">
+        <div class="flex items-start gap-6 mb-8 flex-wrap">
+          <div>
+            <p class="text-gold text-xs tracking-[0.2em] uppercase font-medium mb-1">Case Study 03</p>
+            <h3 class="font-serif text-2xl md:text-3xl text-cream">Product Quality Safeguarding &amp; Return Mitigation</h3>
+          </div>
+          <span class="ml-auto font-serif text-2xl text-gold" style="white-space:nowrap;">↓ Returns</span>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div>
+            <span class="gold-rule-left"></span>
+            <p class="text-gold text-xs tracking-[0.18em] uppercase font-medium mb-3">The Problem</p>
+            <p class="text-muted text-sm leading-relaxed">Defective and counterfeit items entering the fulfilment network were inflating return rates, eroding customer trust, and generating significant direct costs — including expensive failed return pick-up attempts.</p>
+          </div>
+          <div>
+            <span class="gold-rule-left"></span>
+            <p class="text-gold text-xs tracking-[0.18em] uppercase font-medium mb-3">Strategy &amp; Execution</p>
+            <p class="text-muted text-sm leading-relaxed">Conceptualised and launched the <strong class="text-cream font-medium">'Product Quality Check'</strong> project — a pre-dispatch inspection programme that flagged defective and non-genuine items before they reached customers. Simultaneously redesigned return pick-up SLAs, reducing failed collection attempts through route optimisation and proactive vendor communication.</p>
+          </div>
+          <div>
+            <span class="gold-rule-left"></span>
+            <p class="text-gold text-xs tracking-[0.18em] uppercase font-medium mb-3">Measurable Outcome</p>
+            <p class="text-muted text-sm leading-relaxed">Return costs reduced substantially for the business. Customer complaint rates tied to product quality declined. The initiative was adopted as a standard operating procedure and contributed directly to improved post-purchase satisfaction scores across the platform.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════  TESTIMONIALS  ═══════════════════════ -->
+<section id="testimonials" class="py-24 px-6" style="background:#1e1e26;">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <p class="text-gold text-xs tracking-[0.25em] uppercase mb-4 font-medium">Voices of Colleagues</p>
+      <span class="gold-rule"></span>
+      <h2 class="font-serif text-3xl md:text-4xl text-cream">Testimonials</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <div class="testi-card p-8 reveal">
+        <div class="pt-4">
+          <p class="text-muted text-sm leading-relaxed mb-6 italic font-serif" style="color:#c4bfb5;">
+            "Lena's ability to translate complex marketplace data into clear, actionable strategies is exceptional. Under her leadership, our vendor satisfaction metrics reached heights we hadn't seen before — and stayed there."
+          </p>
+          <div class="flex items-center gap-3" style="border-top:1px solid rgba(201,169,110,0.12);padding-top:1.25rem;">
+            <div class="w-9 h-9 rounded-full bg-panel flex items-center justify-center text-gold font-serif font-semibold text-sm">JK</div>
+            <div>
+              <p class="text-cream text-sm font-medium">James Kamau</p>
+              <p class="text-muted text-xs mt-0.5">Chief Commercial Officer, Jumia Kenya</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card p-8 reveal" style="transition-delay:0.1s;">
+        <div class="pt-4">
+          <p class="text-muted text-sm leading-relaxed mb-6 italic font-serif" style="color:#c4bfb5;">
+            "Working with Lena across fulfilment and operations, I've witnessed first-hand how she builds bridges between teams that normally operate in silos. Her quality check initiative transformed how we think about returns."
+          </p>
+          <div class="flex items-center gap-3" style="border-top:1px solid rgba(201,169,110,0.12);padding-top:1.25rem;">
+            <div class="w-9 h-9 rounded-full bg-panel flex items-center justify-center text-gold font-serif font-semibold text-sm">DL</div>
+            <div>
+              <p class="text-cream text-sm font-medium">Daisy Langat</p>
+              <p class="text-muted text-xs mt-0.5">Head of Fulfilment, Jumia Kenya</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card p-8 reveal" style="transition-delay:0.2s;">
+        <div class="pt-4">
+          <p class="text-muted text-sm leading-relaxed mb-6 italic font-serif" style="color:#c4bfb5;">
+            "Lena leads with both data and empathy. Her seller incubation programme didn't just grow our numbers — it built a community of confident vendors who genuinely trust the platform. That's a rare combination."
+          </p>
+          <div class="flex items-center gap-3" style="border-top:1px solid rgba(201,169,110,0.12);padding-top:1.25rem;">
+            <div class="w-9 h-9 rounded-full bg-panel flex items-center justify-center text-gold font-serif font-semibold text-sm">AN</div>
+            <div>
+              <p class="text-cream text-sm font-medium">Amara Njoroge</p>
+              <p class="text-muted text-xs mt-0.5">Senior Partner Manager, Jumia Kenya</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════  AWARDS  ═══════════════════════ -->
+<section class="py-20 px-6 bg-charcoal">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-12 reveal">
+      <p class="text-gold text-xs tracking-[0.25em] uppercase mb-4 font-medium">Recognition</p>
+      <span class="gold-rule"></span>
+      <h2 class="font-serif text-3xl md:text-4xl text-cream">Awards &amp; Certifications</h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
+
+      <div class="award-item py-4">
+        <p class="text-gold text-xs tracking-widest uppercase font-medium mb-2">2025 · Q2</p>
+        <p class="font-serif text-lg text-cream">Game Changer Award</p>
+        <p class="text-muted text-xs mt-1">Jumia Kenya</p>
+      </div>
+
+      <div class="award-item py-4">
+        <p class="text-gold text-xs tracking-widest uppercase font-medium mb-2">2023</p>
+        <p class="font-serif text-lg text-cream">MVP Award</p>
+        <p class="text-muted text-xs mt-1">Jumia Kenya</p>
+      </div>
+
+      <div class="award-item py-4">
+        <p class="text-gold text-xs tracking-widest uppercase font-medium mb-2">Certification</p>
+        <p class="font-serif text-lg text-cream">Power BI Data Analytics</p>
+        <p class="text-muted text-xs mt-1">Microsoft</p>
+      </div>
+
+      <div class="award-item py-4">
+        <p class="text-gold text-xs tracking-widest uppercase font-medium mb-2">Certification</p>
+        <p class="font-serif text-lg text-cream">E-Commerce Management</p>
+        <p class="text-muted text-xs mt-1">Professional Development</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════  CONTACT / FOOTER  ═══════════════════════ -->
+<section id="contact" class="py-24 px-6" style="background:#15151a;">
+  <div class="max-w-2xl mx-auto text-center reveal">
+    <p class="text-gold text-xs tracking-[0.25em] uppercase mb-4 font-medium">Open to Opportunities</p>
+    <span class="gold-rule"></span>
+    <h2 class="font-serif text-3xl md:text-4xl text-cream mb-6">Let's Build Something<br/><em class="gold-text">Extraordinary</em></h2>
+    <p class="text-muted leading-relaxed mb-10">
+      Whether you're scaling a marketplace, building a high-performance operations team, or need a strategic partner to translate data into growth — I'd love to talk.
+    </p>
+    <div class="flex flex-wrap gap-4 justify-center">
+      <a href="mailto:lenawanjirum10@gmail.com" class="btn-solid">lenawanjirum10@gmail.com</a>
+      <a href="https://www.linkedin.com/in/lena-muturi" target="_blank" rel="noopener" class="btn-gold flex items-center gap-2">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+
+    <div style="border-top:1px solid rgba(201,169,110,0.1);margin-top:4rem;padding-top:2rem;" class="flex flex-col sm:flex-row items-center justify-between gap-4 text-muted text-xs">
+      <span class="font-serif">Lena Muturi<span class="text-gold"> · </span>Kenya</span>
+      <span>© 2025 · All rights reserved</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════  SCRIPTS  ═══════════════════════ -->
+<script>
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+  function closeMobile() {
+    mobileMenu.classList.add('hidden');
+  }
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
